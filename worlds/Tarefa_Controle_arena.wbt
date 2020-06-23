@@ -1,0 +1,432 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  info [
+    "pioneerFIAP"
+  ]
+}
+Viewpoint {
+  orientation 0.5178219902331654 0.7664552900799168 0.380008782450451 4.732592837717194
+  position -19.36772141083933 22.713603117478186 12.987846700687223
+}
+Background {
+  skyColor [
+    0.15 0.45 1
+  ]
+}
+RectangleArena {
+  translation -1.227980153694876 -1.1945999744966684e-13 6.783858032892876
+  rotation 0 -1 0 0.5366887449882549
+  floorSize 20 20
+  floorTileSize 2 2
+  floorAppearance ChequeredParquetry {
+    textureTransform TextureTransform {
+      scale 0 1
+    }
+  }
+  wallHeight 0.4
+  wallTileSize 1 1
+}
+SolidBox {
+  translation 6.098516035142651 0.5006075999988355 8.134752723721222
+  rotation 3.6981525920784175e-17 -1 9.430346096872281e-18 -2.61799387
+  name "box(1)"
+  size 0.1 1 9
+  physics Physics {
+    mass 1
+    centerOfMass [
+      0 0 0
+    ]
+  }
+}
+AdvertisingBoard {
+  translation -13.231663733462153 0.5600000000000149 9.776838077730536
+  rotation 0 1 0 4.974188353
+  frontTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  backTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  displayHeight 1
+  frameThickness 0.19999999999999998
+}
+AdvertisingBoard {
+  translation 8.603988910764562 0.21999999999982503 6.417104600939375
+  rotation 0 1 0 4.188790153640825
+  name "advertising board(1)"
+  frontTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  backTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  displayWidth 9
+  displayHeight 0.4
+  frameThickness 0.1
+}
+AdvertisingBoard {
+  translation 3.756070063168215 0.21999999999982858 -0.5318381155469014
+  rotation 0 0.9999999999999999 0 4.188790153640825
+  name "advertising board(3)"
+  frontTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  backTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  displayWidth 2
+  displayHeight 0.4
+  frameThickness 0.1
+}
+AdvertisingBoard {
+  translation -2.866282041616312 0.2199999999997682 -1.2746694654900126
+  rotation 0 -1 0 3.6651915330775218
+  name "advertising board(4)"
+  frontTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  backTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  displayWidth 9
+  displayHeight 0.4
+  frameThickness 0.1
+}
+AdvertisingBoard {
+  translation 2.1552103083807648 0.21999999999982503 0.7022876809005449
+  rotation 0 1 0 3.4033919542816515
+  name "advertising board(5)"
+  frontTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  backTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  displayWidth 2
+  displayHeight 0.4
+  frameThickness 0.1
+}
+AdvertisingBoard {
+  translation 5.532752645525295 0.2200000000000453 13.356634224792854
+  rotation 0 -1 0 1.8325957473591736
+  name "advertising board(2)"
+  frontTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  backTexture [
+    "textures/gray_brick_wall.jpg"
+  ]
+  displayWidth 6
+  displayHeight 0.4
+  frameThickness 0.1
+}
+DirectionalLight {
+  direction 0 -1 0
+  intensity 3
+}
+Pioneer3at {
+  translation -5.977451634986827 0.10928902757734321 -1.921036310643053
+  rotation 6.415020010388533e-05 -0.9999999948386796 -7.878700495307098e-05 3.98424610733204
+  controller ""
+}
+Floor {
+  translation -6 0.001 -2
+  rotation 0 1 0 0.9162996938995747
+  size 1 1
+  tileSize 1.7000000000000002 1.4
+  appearance ChequeredParquetry {
+    textureTransform TextureTransform {
+      scale 0 0
+    }
+  }
+}
+Ramp30deg {
+  translation -6.055950961845735 -7.105427357601002e-15 15.74941415226745
+  rotation 0.9351131097349311 0.2505628366255413 0.2505628402298096 4.64535144990616
+}
+WoodenPalletStack {
+  translation -2.9431257622626017 0 -3.2735303922346475
+}
+WoodenPallet {
+  translation 0.6662184948923042 0 -1.442085896096457
+  rotation 0 1 0 5.23598774
+}
+WoodenPallet {
+  translation -0.5419030860357772 0 -2.441788561366194
+  rotation 0 1 0 1.0471975479999998
+  name "wooden pallet(1)"
+}
+Puma560 {
+  translation -3.9887068453064547 0 -4.705970862619318
+  controller ""
+}
+WorkBarrier {
+  translation -2.795514438861371 -8.881784197001252e-15 3.966057130794921
+  rotation 0 1 0 5.7595865139999995
+}
+WorkBarrier {
+  translation -6.628975875405867 8.171241461241152e-14 8.650826121307869
+  rotation 0 1 0 5.23598774
+  name "work barrier(1)"
+}
+WorkBarrier {
+  translation -0.8270234324826511 7.815970093361102e-14 12.971025041453117
+  rotation 0 1 0 6.021385900999999
+  name "work barrier(2)"
+}
+PedestrianCrossing {
+  translation 5.33314993732955 3.552713678800501e-15 5.908863567865572
+  rotation 0 1 0 1.0471975479999998
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation 1.9416070315861393 5.329070518200751e-15 6.824333346140332
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(1)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation 1.9709491027357888 3.552713678800501e-15 11.719823795952545
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(2)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -2.187914570028145 3.552713678800501e-15 9.292643616901293
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(3)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -4.50462946546633 3.552713678800501e-15 7.95705580147004
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(6)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -6.825870709576665 3.552713678800501e-15 6.611016929938358
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(5)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -1.0645626953077558 3.552713678800501e-15 7.033559917626378
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(7)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -3.344158882706817 3.552713678800501e-15 5.725435714693477
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(9)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -5.539765209719096 3.552713678800501e-15 4.42956793649624
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(8)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -9.821152433561355 -7.749356711883593e-14 5.332449201484056
+  rotation 0 1 0 5.7595865139999995
+  name "pedestrian crossing(10)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -2.8889117351996476 -1.4854784069484595e-13 15.042189633708553
+  rotation 0 -1 0 5.235987778359173
+  name "pedestrian crossing(11)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation 4.677141421345784 -1.4854784069484595e-13 12.985043118972303
+  rotation 0 -1 0 3.6651914563591728
+  name "pedestrian crossing(14)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation 6.3900571998208715 -1.4854784069484595e-13 9.83436313902066
+  rotation 0 -1 0 3.6651914563591728
+  name "pedestrian crossing(16)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation 9.33958060415205 -1.538769112130467e-13 4.7101042914688485
+  rotation 0 -1 0 3.6651914563591728
+  name "pedestrian crossing(17)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -3.1348437936092575 -1.574296248918472e-13 0.16665742044865972
+  rotation 0 -0.9999999999999999 0 2.0943951343591722
+  name "pedestrian crossing(18)"
+  size 4 0.2
+  textureFiltering 1
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation 2.9763994847614015 -1.574296248918472e-13 2.675837532322726
+  rotation 0 -1 0 3.6651914563591728
+  name "pedestrian crossing(19)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation 2.5803174644208497 -1.4854784069484595e-13 16.429290153233993
+  rotation 0 -1 0 3.6651914563591728
+  name "pedestrian crossing(15)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -5.904452103247906 -1.4854784069484595e-13 13.32247317388866
+  rotation 0 -1 0 5.235987778359173
+  name "pedestrian crossing(13)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -10.528395105268991 -1.4854784069484595e-13 10.644594049300323
+  rotation 0 -1 0 5.235987778359173
+  name "pedestrian crossing(12)"
+  size 4 0.2
+  enableBoundingObject FALSE
+}
+PedestrianCrossing {
+  translation -0.12975999258968196 3.552713678800501e-15 10.476100040295412
+  rotation 0 1 0 1.0471975479999998
+  name "pedestrian crossing(4)"
+  size 8 3
+  enableBoundingObject FALSE
+}
+OilBarrel {
+  translation 2.6352524362044036 0.44 5.313570839222453
+}
+OilBarrel {
+  translation 2.8845330722395843 0.44 6.439757630850591
+  name "oil barrel(2)"
+}
+OilBarrel {
+  translation -5.613686958434546 0.44 15.367659822292923
+  rotation 0 0.9999999999999999 0 0.7853981610000004
+  name "oil barrel(1)"
+}
+OilBarrel {
+  translation 2.20833686540416 0.44 -2.1262085050641
+  name "oil barrel(3)"
+}
+OilBarrel {
+  translation 0.9840962973863903 0.44 -2.774985468869736
+  name "oil barrel(5)"
+}
+OilBarrel {
+  translation 3.9697786559490567 0.44 5.765701472658124
+  name "oil barrel(4)"
+}
+PottedTree {
+  translation 8.933095206250044 0 7.905580241768824
+}
+PottedTree {
+  translation 10.946401518265215 -8.881784197001252e-16 4.654939379530989
+  rotation 0 1 0 5.497787127
+  name "potted tree(1)"
+}
+PottedTree {
+  translation 7.688102942820535 0 10.104179705674099
+  rotation 0 1 0 5.497787127
+  name "potted tree(2)"
+}
+YoubotFlag {
+  translation -8.057616988185456 -1.2434497875801753e-14 6.3389875179598185
+  rotation 0 0.9999999999999999 0 4.188790192
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
+YoubotFlag {
+  translation -9.838292955670852 -1.2434497875801753e-14 9.333705314550421
+  rotation 0 1 0 5.7595865139999995
+  name "youBot flag(1)"
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
+YoubotFlag {
+  translation -2.1856040872604856 -1.0658141036401503e-14 13.726499834644939
+  rotation 0 1 0 5.7595865139999995
+  name "youBot flag(2)"
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
+YoubotFlag {
+  translation 6.936749168149807 -1.794120407794253e-13 10.131902427957218
+  rotation 0 -0.9999999999999999 0 2.0943951343591736
+  name "youBot flag(7)"
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
+YoubotFlag {
+  translation 4.786156897129485 -1.7053025658242404e-13 3.7699768354953367
+  rotation 0 -0.9999999999999999 0 2.0943951343591736
+  name "youBot flag(8)"
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
+YoubotFlag {
+  translation -3.7236165707801607 -1.652011860642233e-13 1.0907791736314278
+  rotation 0 0.9999999999999999 0 2.617993831640826
+  name "youBot flag(9)"
+  textureURL [
+    "textures/flag_goal.png"
+  ]
+}
+YoubotFlag {
+  translation 9.914862155578126 -1.723066134218243e-13 4.922090107465178
+  rotation 0 -0.9999999999999999 0 2.0943951343591736
+  name "youBot flag(4)"
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
+YoubotFlag {
+  translation 3.3994467880291186 -2.255973186038318e-13 12.19886166599803
+  rotation 0 0.9999999999999999 0 1.0471975096408268
+  name "youBot flag(6)"
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
+YoubotFlag {
+  translation 1.3555822585004957 -1.0658141036401503e-14 15.712140277227794
+  rotation 0 -1 0 5.497787165359173
+  name "youBot flag(5)"
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
+YoubotFlag {
+  translation -5.173480483520147 -1.0658141036401503e-14 12.04727602788668
+  rotation 0 1 0 5.7595865139999995
+  name "youBot flag(3)"
+  textureURL [
+    "textures/flag_tmp.png"
+  ]
+}
