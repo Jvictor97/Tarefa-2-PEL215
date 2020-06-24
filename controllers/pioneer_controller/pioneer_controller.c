@@ -68,9 +68,22 @@ int main(int argc, char **argv) {
   double error, integral = 0.0, errorDifference, oldError = 0.0;
   
   /* Constantes PID */
-  double kp = 20; // AJUSTADO
+  
+  /*
+   kp => 0.08 ficou instável demais, vou aumentar
+      => 0.09 também instável
+      => 0.10 ficou melhor, mas ainda segue instável
+      => 0.11 gerou um bom resultado, será mantido => fine tunning será feito com os demais
+      => 0.12 ficou bom, mas está gerando muitos valores fora do intervalo
+      
+   kd => 0.01 ficou melhor, mas preciso de mais testes
+      => 0.02 gerou instabilidade inicial, vou tentar algo intermediário
+      => 0.015 ainda alto, vou diminuir mais
+  */
+  
+  double kp = 0.25;
   double ki = 0.0;
-  double kd = 0.1;
+  double kd = 0.0; 
          
   double maxRightSensorValue;
   double motorPower;
@@ -99,7 +112,7 @@ int main(int argc, char **argv) {
     
     motorPower = (kp * error) + (ki * integral) + (kd * errorDifference);
     
-    rightSpeed += motorPower;
+    rightSpeed = 3.0 + motorPower;
     
     if (rightSpeed < 1.0) rightSpeed = 1.0;
     if (rightSpeed > 5.0) rightSpeed = 5.0;
