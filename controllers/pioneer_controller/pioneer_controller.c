@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
   double error, integral = 0.0, errorDifference, oldError = 0.0;
   
   double kp = 0.25; // 0.25
-  double ki = 0.0;
+  double ki = 0.0002;
   double kd = 0.008; 
          
   double maxRightSensorValue;
