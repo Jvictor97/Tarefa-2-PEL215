@@ -22,7 +22,7 @@ void delay (int time_milisec) {
   double currentTime, initTime, Timeleft;
   double timeValue = (double)time_milisec/1000;
   initTime = wb_robot_get_time();
-  Timeleft =0.00;
+  Timeleft = 0.00;
   while (Timeleft < timeValue)
   {
     currentTime = wb_robot_get_time();
@@ -43,11 +43,13 @@ int main(int argc, char **argv) {
   
   WbDeviceTag so7 = wb_robot_get_device("so7");
   WbDeviceTag so6 = wb_robot_get_device("so6");
+  WbDeviceTag so5 = wb_robot_get_device("so5");
   WbDeviceTag so0 = wb_robot_get_device("so0");
   WbDeviceTag so1 = wb_robot_get_device("so1");
   
   wb_distance_sensor_enable(so7, TIME_STEP);
   wb_distance_sensor_enable(so6, TIME_STEP);
+  wb_distance_sensor_enable(so5, TIME_STEP);
   wb_distance_sensor_enable(so0, TIME_STEP);
   wb_distance_sensor_enable(so1, TIME_STEP); 
   
@@ -57,35 +59,59 @@ int main(int argc, char **argv) {
   wb_motor_set_position(backLeftMotor, INFINITY);
   wb_motor_set_position(backRightMotor, INFINITY);    
   
-  double so7Value, so6Value, so0Value, so1Value;
+  double so7Value, so6Value, so5Value, so0Value, so1Value;
   
-  double currentDistance, minimumDistance, error, 
-         integral, errorDifference, oldError;
+  double currentRightDistance;
+  double minimumDistance = 200.0;
+  
+  /* Variáveis para os erros no controle PID */
+  double error, integral = 0.0, errorDifference, oldError = 0.0;
+  
+  /* Constantes PID */
+  double kp = 20; // AJUSTADO
+  double ki = 0.0;
+  double kd = 0.1;
+         
+  double maxRightSensorValue;
+  double motorPower;
+  double rightSpeed = 3.0;
+  double leftSpeed = 3.0;
 
   while (wb_robot_step(TIME_STEP) != -1) {
  
     so0Value = wb_distance_sensor_get_value(so0); 
-    so1Value = wb_distance_sensor_get_value(so1);   
+    so1Value = wb_distance_sensor_get_value(so1);  
+    so5Value = wb_distance_sensor_get_value(so5); 
     so6Value = wb_distance_sensor_get_value(so6);
     so7Value = wb_distance_sensor_get_value(so7);
     
-    printf("s0: %f s1: %f s2: %f s3: %f s4: %f s5: %f s6: %f s7: %f\n", 
-           so0Value, so1Value, so2Value, so3Value, so4Value, so5Value, so6Value,
-           so7Value);
+    maxRightSensorValue = so5Value > so6Value ? 
+                          (so5Value > so7Value ? so5Value : so7Value) : 
+                          (so6Value > so7Value ? so6Value : so7Value);
+                          
+    currentRightDistance = 1024 - maxRightSensorValue;
+    
+    error = minimumDistance - currentRightDistance;
+    
+    integral += error;
+    errorDifference = error - oldError;
+    oldError = error;
+    
+    motorPower = (kp * error) + (ki * integral) + (kd * errorDifference);
+    
+    rightSpeed += motorPower;
+    
+    if (rightSpeed < 1.0) rightSpeed = 1.0;
+    if (rightSpeed > 5.0) rightSpeed = 5.0;
+    
+    printf("distance: %f left: %f right: %f\n", 
+           currentRightDistance, leftSpeed, rightSpeed);
     fflush(stdout);
-  
-    /*
-     * Read the sensors :
-     * Enter here functions to read sensor data, like:
-     *  double val = wb_distance_sensor_get_value(my_sensor);
-     */
-
-    /* Process sensor data here */
-
-    /*
-     * Enter here functions to send actuator commands, like:
-     * wb_motor_set_position(my_actuator, 10.0);
-     */
+    
+    wb_motor_set_velocity(frontLeftMotor, leftSpeed);
+    wb_motor_set_velocity(backLeftMotor, leftSpeed);
+    wb_motor_set_velocity(frontRightMotor, rightSpeed);
+    wb_motor_set_velocity(backRightMotor, rightSpeed);
   };
 
   /* Enter your cleanup code here */
