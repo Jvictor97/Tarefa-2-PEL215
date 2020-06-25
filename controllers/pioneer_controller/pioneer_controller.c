@@ -105,7 +105,6 @@ int main(int argc, char **argv) {
                           
     currentRightDistance = 1024 - maxRightSensorValue;
     currentLeftDistance = 1024 - maxLeftSensorValue;
-    int tipo = 0;
     
     if (currentLeftDistance < 300) error = currentLeftDistance - currentRightDistance;
     else error = minimumDistance - currentRightDistance;
