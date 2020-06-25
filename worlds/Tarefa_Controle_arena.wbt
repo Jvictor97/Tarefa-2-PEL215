@@ -127,7 +127,7 @@ DirectionalLight {
 Pioneer3at {
   translation -5.977451634986827 0.10928902757734321 -1.921036310643053
   rotation 6.415020010388533e-05 -0.9999999948386796 -7.878700495307098e-05 3.98424610733204
-  controller ""
+  controller "pioneer_controller"
 }
 Floor {
   translation -6 0.001 -2

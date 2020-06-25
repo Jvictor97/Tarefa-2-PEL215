@@ -46,12 +46,14 @@ int main(int argc, char **argv) {
   WbDeviceTag so5 = wb_robot_get_device("so5");
   WbDeviceTag so0 = wb_robot_get_device("so0");
   WbDeviceTag so1 = wb_robot_get_device("so1");
+  WbDeviceTag so3 = wb_robot_get_device("so3");
   
   wb_distance_sensor_enable(so7, TIME_STEP);
   wb_distance_sensor_enable(so6, TIME_STEP);
   wb_distance_sensor_enable(so5, TIME_STEP);
   wb_distance_sensor_enable(so0, TIME_STEP);
   wb_distance_sensor_enable(so1, TIME_STEP); 
+  wb_distance_sensor_enable(so3, TIME_STEP);
   
   // Configurando os motores
   wb_motor_set_position(frontLeftMotor, INFINITY);
@@ -59,7 +61,8 @@ int main(int argc, char **argv) {
   wb_motor_set_position(backLeftMotor, INFINITY);
   wb_motor_set_position(backRightMotor, INFINITY);    
   
-  double so7Value, so6Value, so5Value, so0Value, so1Value;
+  double so7Value, so6Value, so5Value, so0Value, 
+         so1Value, so3Value;
   
   double currentRightDistance;
   double minimumDistance = 200.0;
@@ -67,7 +70,7 @@ int main(int argc, char **argv) {
   /* Variáveis para os erros no controle PID */
   double error, integral = 0.0, errorDifference, oldError = 0.0;
   
-  double kp = 0.25; // 0.25
+  double kp = 0.25;
   double ki = 0.0002;
   double kd = 0.008; 
          
@@ -80,17 +83,36 @@ int main(int argc, char **argv) {
  
     so0Value = wb_distance_sensor_get_value(so0); 
     so1Value = wb_distance_sensor_get_value(so1);  
+    so3Value = wb_distance_sensor_get_value(so3);  
     so5Value = wb_distance_sensor_get_value(so5); 
     so6Value = wb_distance_sensor_get_value(so6);
     so7Value = wb_distance_sensor_get_value(so7);
+    
+    if (1024 - so3Value <= minimumDistance) {
+      wb_motor_set_velocity(frontLeftMotor, -3.0);
+      wb_motor_set_velocity(backLeftMotor, -3.0);
+      wb_motor_set_velocity(frontRightMotor, 3.0);
+      wb_motor_set_velocity(backRightMotor, 3.0);
+      
+      delay(1200);
+      continue;
+    }
+    
     
     maxRightSensorValue = so5Value > so6Value ? 
                           (so5Value > so7Value ? so5Value : so7Value) : 
                           (so6Value > so7Value ? so6Value : so7Value);
                           
     currentRightDistance = 1024 - maxRightSensorValue;
+    // currentLeftDistance = 1024 - maxLeftSensorValue;
     
-    error = minimumDistance - currentRightDistance;
+    
+    //if (currentLeftDistance < 300) {
+    //  error = currentLeftDistance - currentRightDistance;
+    //}
+    //else {
+      error = minimumDistance - currentRightDistance;
+    //}
     
     integral += error;
     errorDifference = error - oldError;
@@ -103,7 +125,7 @@ int main(int argc, char **argv) {
     if (rightSpeed < 1.0) rightSpeed = 1.0;
     if (rightSpeed > 5.0) rightSpeed = 5.0;
     
-    printf("distance: %f left: %f right: %f\n", 
+    printf("rightDistance: %f left: %f right: %f\n", 
            currentRightDistance, leftSpeed, rightSpeed);
     fflush(stdout);
     
